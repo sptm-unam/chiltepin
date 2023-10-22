@@ -1,0 +1,41 @@
+{
+  "name": "chiltepin",
+  "version": "1.0.0",
+  "description": "Web live coding simple",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --verbose",
+    "coverage": "npm test -- --coverage --watchAll=true"
+  },
+  "files": [
+    "/dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sptm-unam/chiltepin.git"
+  },
+  "keywords": [
+    "web audio",
+    "music",
+    "live coding"
+  ],
+  "author": "SPTM",
+  "license": "LGPL-2.1-only",
+  "bugs": {
+    "url": "https://github.com/sptm-unam/chiltepin/issues"
+  },
+  "homepage": "https://github.com/sptm-unam/chiltepin/blob/main/README.md",
+  "devDependencies": {
+    "@types/jest": "^28.1.8",
+    "@types/node": "^20.8.7",
+    "jest": "^28.1.2",
+    "ts-jest": "^28.0.8",
+    "ts-node": "^10.9.1"
+  },
+  "engines": {
+    "npm": "8.19.2",
+    "node": "18.12.0"
+  }
+}
