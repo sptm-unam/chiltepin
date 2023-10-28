@@ -3,7 +3,7 @@ import { Player } from '../SoundEnvironment/Player'
 
 import { midiToFrequency, letterToNote, durationToTime, createTimeId, calculateOctave } from '../utils/utils'
 
-const AudioEngine = function (audioContext) {
+const AudioEngine = function (audioContext: any) {
   console.log('audio engine')
 
   const state = {
@@ -24,7 +24,7 @@ const AudioEngine = function (audioContext) {
     console.log(stackNodes)
   }
 
-  function addElementToEngine(element) {
+  function addElementToEngine(element: Sine) {
     const id = createTimeId()
     console.log({ id })
     hashNodes[id] = element
@@ -42,7 +42,7 @@ const AudioEngine = function (audioContext) {
   }
 
   return {
-    playMidi: function (midiNum) {
+    playMidi: function (midiNum: string) {
       // Check current oscilator in state
       // create oscilator with current kind
       const osc = new Sine(audioContext, state.synth)
@@ -58,7 +58,7 @@ const AudioEngine = function (audioContext) {
       addElementToEngine(osc)
       printState()
     },
-    playFreq: function (freqStr) {
+    playFreq: function (freqStr: string) {
       const osc = new Sine(audioContext, state.synth)
       osc.gain(state.gain)
       const freq = parseInt(freqStr)
@@ -70,7 +70,7 @@ const AudioEngine = function (audioContext) {
       addElementToEngine(osc)
       printState()
     },
-    playLilyMultiple: function (synth, notesList) {
+    playLilyMultiple: function (synth: any, notesList: string | any[]) {
       const osc = new Sine(audioContext, synth || state.synth)
       const freqList = []
       const durationList = []
@@ -100,14 +100,10 @@ const AudioEngine = function (audioContext) {
     samplePlay: function () {
       alert('sample engine')
     },
-    smplsq: function (seq) {
-      const audioFile1 = document.getElementById('audio_file1')
-      const smpl = new Player(audioContext, audioFile1)
-      smpl.sequence(seq)
-      addElementToEngine(smpl)
+    smplsq: function (seq: any) {
       printState()
     },
-    synthChange: function (type) {
+    synthChange: function (type: string) {
       state.synth = type
       console.log(state)
     }

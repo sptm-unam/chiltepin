@@ -2,7 +2,15 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  modulePathIgnorePatterns: ["dist"],
+  modulePathIgnorePatterns: ['dist'],
   collectCoverage: true,
-  coverageDirectory: "coverage",
-};
+  coverageDirectory: 'coverage',
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: -10
+    }
+  }
+}

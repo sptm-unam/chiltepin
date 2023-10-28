@@ -1,10 +1,10 @@
-const checks = require('../conditionsCheck')
+import  * as checks from '../conditionsCheck'
 
 describe('Check midi match', () => {
   it('should call midi handler if passed number in range [0,127]', () => {
     const handlerMIDI = jest.fn()
     const handlerFreq = jest.fn()
-    checks.midiMatch('60', handlerMIDI)
+    checks.midiMatch('60', handlerMIDI, handlerFreq)
     expect(handlerMIDI).toHaveBeenCalledWith('60')
     expect(handlerFreq).not.toHaveBeenCalled()
   })
@@ -128,6 +128,30 @@ describe('Check sample play match', () => {
     const handlerBPM = jest.fn()
     checks.sampleMatch('#sample 2|2', handlerBPM)
     expect(handlerBPM).toHaveBeenCalledWith(expected)
+  })
+})
+
+describe('Check sample sq play match', () => {
+  it('should call sample sq play handler if string is in format', () => {
+    const handler = jest.fn()
+    checks.smplsqMatch('smplsq 2', handler)
+    expect(handler).toHaveBeenCalledWith(["2"])
+  })
+})
+
+describe('Check synth match ', () => {
+  it('should call synth match play handler if string is in format', () => {
+    const handler = jest.fn()
+    checks.synthMatch('sine', handler)
+    expect(handler).toHaveBeenCalledWith("sine")
+  })
+})
+
+describe('Check grain match ', () => {
+  it('should call grain match play handler if string is in format', () => {
+    const handler = jest.fn()
+    checks.grainMatch('grain 2', handler)
+    expect(handler).toHaveBeenCalledWith(["2"])
   })
 })
 
