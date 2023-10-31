@@ -1,1 +1,1 @@
-export { libraryInit, closeLibrary } from "./logs";
+export { SPTMController } from './sptm/SPTMController'
